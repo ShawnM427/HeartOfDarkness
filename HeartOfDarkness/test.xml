@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scene name="testScene">
+	<dialogues>
+		<dialog id="0" speaker="1" nextId="1">
+			<script>
+				foo 
+				bar 
+				zulu! 
+				WTF
+			</script>
+			<TextureChange role="Background" texture="testBg" />
+			<TextureChange role="TextPanel" texture="testTextPanel" />
+			<TextureChange role="Speaker0" texture="left/static" />
+			<TextureChange role="Speaker7" texture="person_right" />
+			<message>Hello %player.Name%, That'll be a \%12 interest rate</message>
+		</dialog>
+		<dialog id="1" speaker="1" choices="0,1">
+			<TextureChange role="Background" texture="testBg2" />
+			<message>Are you ready to get up and up and then down?</message>
+		</dialog>
+    <dialog id="2" speaker="1" nextId="0">
+      <TextureChange role="Speaker0" texture="left/angry" />
+      <message>Well fuck you then!</message>
+    </dialog>
+    <dialog id="3" speaker="1" nextId="0">
+      <TextureChange role="Speaker0" texture="left/happy" />
+      <message>Hellz yes!</message>
+    </dialog>
+	</dialogues>
+	<choices>
+		<choice id="0" nextId="3">
+			<message>Yep</message>
+			<commands />
+		</choice>
+		<choice id="1" nextId="2">
+			<message>Nope</message>
+			<commands />
+		</choice>
+	</choices>
+</scene>
