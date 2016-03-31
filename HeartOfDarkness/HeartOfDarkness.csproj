@@ -46,6 +46,8 @@
     <Compile Include="Dialogue\TextureChangeCollection.cs" />
     <Compile Include="Dialogue\TextureChangeTag.cs" />
     <Compile Include="Scripting\Entity.cs" />
+    <Compile Include="Scripting\Item.cs" />
+    <Compile Include="Scripting\ItemCollection.cs" />
     <Compile Include="Scripting\NPC.cs" />
     <Compile Include="Utils\AttributeCollection.cs" />
     <Compile Include="Dialogue\DialogueChoice.cs" />
@@ -72,7 +74,7 @@
     </Reference>
     <Reference Include="MonoGame.Framework, Version=3.5.1.1679, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="NLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8df2ab518030ea95, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

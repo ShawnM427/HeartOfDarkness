@@ -12,14 +12,21 @@ using System.Text;
 
 namespace HeartOfDarkness.Scripting
 {
-    public class Entity
+    public abstract class Entity
     {
-        protected AttributeCollection<object> m_attributes;
+        protected AttributeCollection<object> myAttributes;
+        protected ItemCollection myItems;
 
         public object this[string index]
         {
-            get { return m_attributes[index]; }
-            set { m_attributes[index] = value; }
+            get { return myAttributes[index]; }
+            set { myAttributes[index] = value; }
+        }
+
+        protected Entity()
+        {
+            myItems = new ItemCollection();
+            myAttributes = new AttributeCollection<object>();
         }
     }
 }
