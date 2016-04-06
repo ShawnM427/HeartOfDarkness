@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Dialogue\DialogueRenderer.cs" />
+    <Compile Include="Dialogue\RectangleF.cs" />
     <Compile Include="Dialogue\TextureChangeCollection.cs" />
     <Compile Include="Dialogue\TextureChangeTag.cs" />
     <Compile Include="Scripting\Entity.cs" />
