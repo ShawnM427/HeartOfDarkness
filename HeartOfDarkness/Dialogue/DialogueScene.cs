@@ -35,9 +35,9 @@ namespace HeartOfDarkness.Dialogue
         DialogueChoiceCollection m_choices;
         DialogueOutputCollection m_dialogs;
 
-        Dictionary<TextureChangeRole, Texture2D> myTextures;
+        Dictionary<TextureRole, Texture2D> myTextures;
 
-        public Dictionary<TextureChangeRole, Texture2D> Textures
+        public Dictionary<TextureRole, Texture2D> Textures
         {
             get { return myTextures; }
         }
@@ -144,7 +144,7 @@ namespace HeartOfDarkness.Dialogue
             m_choices = new DialogueChoiceCollection();
             m_dialogs.Add(UNKNOWN_CHOICE);
 
-            myTextures = new Dictionary<TextureChangeRole, Texture2D>();
+            myTextures = new Dictionary<TextureRole, Texture2D>();
         }
 
         /// <summary>
@@ -330,21 +330,21 @@ namespace HeartOfDarkness.Dialogue
         {
             TextureChangeCollection changes = CurrentDialog.TexChanges;
             
-            foreach(TextureChangeRole role in Enum.GetValues(typeof(TextureChangeRole)))
+            foreach(TextureRole role in Enum.GetValues(typeof(TextureRole)))
             {
                 myTextures[role] = changes[role] != null ? changes[role].GetTexture() : ( myTextures.ContainsKey(role) ? myTextures[role] : null );
             }
 
-            BackgroundTexture = changes[TextureChangeRole.Background] != null ? changes[TextureChangeRole.Background].GetTexture() : BackgroundTexture;
-            Speaker0Texture = changes[TextureChangeRole.Speaker0] != null ? changes[TextureChangeRole.Speaker0].GetTexture() : Speaker0Texture;
-            Speaker1Texture = changes[TextureChangeRole.Speaker1] != null ? changes[TextureChangeRole.Speaker1].GetTexture() : Speaker1Texture;
-            Speaker2Texture = changes[TextureChangeRole.Speaker2] != null ? changes[TextureChangeRole.Speaker2].GetTexture() : Speaker2Texture;
-            Speaker3Texture = changes[TextureChangeRole.Speaker3] != null ? changes[TextureChangeRole.Speaker3].GetTexture() : Speaker3Texture;
-            Speaker4Texture = changes[TextureChangeRole.Speaker4] != null ? changes[TextureChangeRole.Speaker4].GetTexture() : Speaker4Texture;
-            Speaker5Texture = changes[TextureChangeRole.Speaker5] != null ? changes[TextureChangeRole.Speaker5].GetTexture() : Speaker5Texture;
-            Speaker6Texture = changes[TextureChangeRole.Speaker6] != null ? changes[TextureChangeRole.Speaker6].GetTexture() : Speaker6Texture;
-            Speaker7Texture = changes[TextureChangeRole.Speaker7] != null ? changes[TextureChangeRole.Speaker7].GetTexture() : Speaker7Texture;
-            TextPanelTexture = changes[TextureChangeRole.TextPanel] != null ? changes[TextureChangeRole.TextPanel].GetTexture() : TextPanelTexture;
+            BackgroundTexture = changes[TextureRole.Background] != null ? changes[TextureRole.Background].GetTexture() : BackgroundTexture;
+            Speaker0Texture = changes[TextureRole.Speaker0] != null ? changes[TextureRole.Speaker0].GetTexture() : Speaker0Texture;
+            Speaker1Texture = changes[TextureRole.Speaker1] != null ? changes[TextureRole.Speaker1].GetTexture() : Speaker1Texture;
+            Speaker2Texture = changes[TextureRole.Speaker2] != null ? changes[TextureRole.Speaker2].GetTexture() : Speaker2Texture;
+            Speaker3Texture = changes[TextureRole.Speaker3] != null ? changes[TextureRole.Speaker3].GetTexture() : Speaker3Texture;
+            Speaker4Texture = changes[TextureRole.Speaker4] != null ? changes[TextureRole.Speaker4].GetTexture() : Speaker4Texture;
+            Speaker5Texture = changes[TextureRole.Speaker5] != null ? changes[TextureRole.Speaker5].GetTexture() : Speaker5Texture;
+            Speaker6Texture = changes[TextureRole.Speaker6] != null ? changes[TextureRole.Speaker6].GetTexture() : Speaker6Texture;
+            Speaker7Texture = changes[TextureRole.Speaker7] != null ? changes[TextureRole.Speaker7].GetTexture() : Speaker7Texture;
+            TextPanelTexture = changes[TextureRole.TextPanel] != null ? changes[TextureRole.TextPanel].GetTexture() : TextPanelTexture;
         }
 
         public Texture2D BackgroundTexture { get; protected set; }

@@ -15,9 +15,9 @@ namespace HeartOfDarkness.Dialogue
 {
     public class TextureChangeCollection : IEnumerable<TextureChangeTag>, IEnumerator<TextureChangeTag>
     {
-        Dictionary<TextureChangeRole, TextureChangeTag> m_internalList;
+        Dictionary<TextureRole, TextureChangeTag> m_internalList;
 
-        public TextureChangeTag this[TextureChangeRole index]
+        public TextureChangeTag this[TextureRole index]
         {
             get 
             {
@@ -39,7 +39,7 @@ namespace HeartOfDarkness.Dialogue
         
         public TextureChangeCollection()
         {
-            m_internalList = new Dictionary<TextureChangeRole, TextureChangeTag>();
+            m_internalList = new Dictionary<TextureRole, TextureChangeTag>();
         }
 
         public IEnumerator<TextureChangeTag> GetEnumerator()

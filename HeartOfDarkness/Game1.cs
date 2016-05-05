@@ -142,7 +142,7 @@ namespace HeartOfDarkness
 
             for (int index = 0; index < 8; index++)
             {
-                TextureChangeRole role = (TextureChangeRole)(TextureChangeRole.Speaker0 + index);
+                TextureRole role = (TextureRole)(TextureRole.Speaker0 + index);
 
                 if (scene.Textures.ContainsKey(role) && scene.Textures[role] != null)
                 {

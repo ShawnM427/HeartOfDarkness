@@ -48,6 +48,7 @@
     <Compile Include="Scripting\Entity.cs" />
     <Compile Include="Scripting\Item.cs" />
     <Compile Include="Scripting\ItemCollection.cs" />
+    <Compile Include="Scripting\Items.cs" />
     <Compile Include="Scripting\NPC.cs" />
     <Compile Include="Utils\AttributeCollection.cs" />
     <Compile Include="Dialogue\DialogueChoice.cs" />

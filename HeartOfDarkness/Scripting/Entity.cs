@@ -28,5 +28,10 @@ namespace HeartOfDarkness.Scripting
             myItems = new ItemCollection();
             myAttributes = new AttributeCollection<object>();
         }
+
+        public void GiveItem(string name, int quantity = 1)
+        {
+            myItems.AddItem(Items.GetItem(name), quantity);
+        }
     }
 }

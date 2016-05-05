@@ -16,14 +16,14 @@ namespace HeartOfDarkness.Dialogue
     public class TextureChangeTag
     {
         string m_textureName;
-        TextureChangeRole m_role;
+        TextureRole m_role;
 
         public string TextureName
         {
             get { return m_textureName; }
             set { m_textureName = value; }
         }
-        public TextureChangeRole Role
+        public TextureRole Role
         {
             get { return m_role; }
             set { m_role = value; }
@@ -32,7 +32,7 @@ namespace HeartOfDarkness.Dialogue
         public TextureChangeTag()
         {
             m_textureName = null;
-            m_role = TextureChangeRole.Background;
+            m_role = TextureRole.Background;
         }
 
         public Texture2D GetTexture()
@@ -44,7 +44,7 @@ namespace HeartOfDarkness.Dialogue
         }
     }
 
-    public enum TextureChangeRole
+    public enum TextureRole
     {
         Speaker0,
         Speaker1,

@@ -146,7 +146,7 @@ namespace HeartOfDarkness.Dialogue
                 {
                     writer.WriteStartElement("TextureChange");
 
-                    writer.WriteAttributeString("role", Enum.GetName(typeof(TextureChangeRole), tag.Role));
+                    writer.WriteAttributeString("role", Enum.GetName(typeof(TextureRole), tag.Role));
 
                     if (tag.TextureName != null)
                         writer.WriteAttributeString("texture", tag.TextureName);
@@ -225,7 +225,7 @@ namespace HeartOfDarkness.Dialogue
             {
                 TextureChangeTag tag = new TextureChangeTag();
 
-                tag.Role = (TextureChangeRole)Enum.Parse(typeof(TextureChangeRole), texNode.Attributes["role"].Value);
+                tag.Role = (TextureRole)Enum.Parse(typeof(TextureRole), texNode.Attributes["role"].Value);
 
                 if (texNode.Attributes["texture"] != null)
                     tag.TextureName = texNode.Attributes["texture"].Value;

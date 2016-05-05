@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 namespace HeartOfDarkness.Scripting
 {
     /// <summary>
-    /// Represents an item that can be picked up and stored in an inventory
+    /// Represents an item that can be picked up and stored in an inventory,
+    /// There should only be one instance of an item at any given time
     /// </summary>
     public class Item
     {
+        /// <summary>
+        /// Stores the items unique internal name
+        /// </summary>
+        private string myInternalName;
         /// <summary>
         /// Stores the item's name
         /// </summary>
@@ -60,20 +65,32 @@ namespace HeartOfDarkness.Scripting
             get { return myPickedUpScript; }
             set { myPickedUpScript = value; }
         }
-        
         /// <summary>
-        /// Creates a new instance of an item
+        /// Gets or sets the items unique internal name
         /// </summary>
+        public string InternalName
+        {
+            get { return myInternalName; }
+            set { myInternalName = value; }
+        }
+
+        /// <summary>
+        /// Creates a new instance of an item. Only one item for an item should ever be constructed. Everything else should just be a reference
+        /// </summary>
+        /// <param name="internalName">The internal name of the item, this should be unique to each item type</param>
         /// <param name="name">The name of the item</param>
         /// <param name="description">The item's description</param>
         /// <param name="usedScript">The script to invoke when the item is used</param>
         /// <param name="pickedUpScript">The script to invoke when the item is picked up</param>
-        public Item(string name, string description, string usedScript = null, string pickedUpScript = null)
+        public Item(string internalName, string name, string description, string usedScript = null, string pickedUpScript = null)
         {
+            myInternalName = internalName;
             myName = name;
             myDescription = description;
             myUsedScript = usedScript;
             myPickedUpScript = pickedUpScript;
+
+            Items.RegisterItem(this);
         }
 
         /// <summary>
