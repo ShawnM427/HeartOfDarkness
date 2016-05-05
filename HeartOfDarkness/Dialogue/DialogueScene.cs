@@ -6,6 +6,7 @@
  */
 
 using HeartOfDarkness.Scripting;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections;
@@ -21,6 +22,27 @@ namespace HeartOfDarkness.Dialogue
     /// </summary>
     public class DialogueScene
     {
+        private static readonly Dictionary<TextureChangeRole, ScreenSpaceRect> TEXTURE_LOCATIONS;
+
+        static DialogueScene()
+        {
+            TEXTURE_LOCATIONS = new Dictionary<TextureChangeRole, ScreenSpaceRect>()
+            {
+                { TextureChangeRole.Background, new ScreenSpaceRect(0, 0, 1, 1) },
+                { TextureChangeRole.TextPanel, new ScreenSpaceRect(0, 0.7f, 1, 0.3f) },
+                { TextureChangeRole.Speaker0, new ScreenSpaceRect(0.000f, 0.55f, 0.25f, 0.25f) },
+                { TextureChangeRole.Speaker1, new ScreenSpaceRect(0.125f, 0.55f, 0.25f, 0.25f) },
+                { TextureChangeRole.Speaker2, new ScreenSpaceRect(0.250f, 0.55f, 0.25f, 0.25f) },
+                { TextureChangeRole.Speaker3, new ScreenSpaceRect(0.325f, 0.55f, 0.25f, 0.25f) },
+                { TextureChangeRole.Speaker4, new ScreenSpaceRect(0.500f, 0.55f, 0.25f, 0.25f) },
+                { TextureChangeRole.Speaker5, new ScreenSpaceRect(0.625f, 0.55f, 0.25f, 0.25f) },
+                { TextureChangeRole.Speaker6, new ScreenSpaceRect(0.750f, 0.55f, 0.25f, 0.25f) },
+                { TextureChangeRole.Speaker7, new ScreenSpaceRect(0.875f, 0.55f, 0.25f, 0.25f) }
+
+            };
+
+        }
+
         const string DEFAULT_NAME = "UNNAMED_SCENE";
         const string DEFAULT_SELECTOR = "return 0";
         static readonly DialogueOutput UNKNOWN_CHOICE = new DialogueOutput() { Message = "NO DIALOG OPTION FOUND!" };
@@ -346,6 +368,22 @@ namespace HeartOfDarkness.Dialogue
             Speaker7Texture = changes[TextureRole.Speaker7] != null ? changes[TextureRole.Speaker7].GetTexture() : Speaker7Texture;
             TextPanelTexture = changes[TextureRole.TextPanel] != null ? changes[TextureRole.TextPanel].GetTexture() : TextPanelTexture;
         }
+
+        public void Render(SpriteBatch batch, SpriteFont font)
+        {
+            UpdateImagery();
+
+            foreach (TextureChangeRole role in Enum.GetValues(typeof(TextureChangeRole)))
+            {
+                if (Textures.ContainsKey(role) && Textures[role] != null)
+                {
+                    batch.Draw(Textures[role], TEXTURE_LOCATIONS[role].ToWorld(batch.GraphicsDevice.Viewport), Color.White);
+                }
+            }
+
+            batch.DrawString(font, CurrentDialog.GetMessage(m_luaContext), new Vector2(5, (int)(batch.GraphicsDevice.Viewport.Height * 0.75f)), Color.Black);
+        }
+
 
         public Texture2D BackgroundTexture { get; protected set; }
         public Texture2D Speaker0Texture { get; protected set; }

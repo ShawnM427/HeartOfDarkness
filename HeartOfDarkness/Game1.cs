@@ -134,26 +134,8 @@ namespace HeartOfDarkness
 
             spriteBatch.Begin();
 
-            if (scene.BackgroundTexture != null)
-                spriteBatch.Draw(scene.BackgroundTexture, screenBounds, Color.White);
-
-            if (scene.TextPanelTexture != null)
-                spriteBatch.Draw(scene.TextPanelTexture, new Rectangle(0, 300, 800, 180), Color.White);
-
-            for (int index = 0; index < 8; index++)
-            {
-                TextureRole role = (TextureRole)(TextureRole.Speaker0 + index);
-
-                if (scene.Textures.ContainsKey(role) && scene.Textures[role] != null)
-                {
-                    spriteBatch.Draw(scene.Textures[role], new Rectangle(index * 100, 200, 100, 100), Color.White);
-                }
-            }
-
-
-            //spriteBatch.Draw(test, Vector2.Zero, Color.White);
-            spriteBatch.DrawString(uiFont, scene.CurrentDialog.GetMessage(scriptContext), new Vector2(5, 340), Color.Black);
-
+            scene.Render(spriteBatch, uiFont);
+           
             int numChoices = scene.CurrentChoices.Length;
             choices = new Rectangle[numChoices];
 
